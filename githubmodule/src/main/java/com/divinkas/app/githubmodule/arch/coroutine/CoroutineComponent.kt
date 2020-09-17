@@ -1,4 +1,4 @@
-package com.divinkas.app.githubmodule.components.coroutine
+package com.divinkas.app.githubmodule.arch.coroutine
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job

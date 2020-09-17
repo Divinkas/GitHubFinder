@@ -1,4 +1,4 @@
-package com.divinkas.app.githubmodule.components.network
+package com.divinkas.app.githubmodule.arch.network
 
 import com.divinkas.app.githubmodule.bean.ServerResult
 

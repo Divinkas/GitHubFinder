@@ -1,4 +1,4 @@
-package com.divinkas.app.githubmodule.components.network
+package com.divinkas.app.githubmodule.arch.network
 
 import androidx.databinding.library.BuildConfig
 import com.divinkas.app.githubmodule.bean.BackendError
@@ -19,7 +19,7 @@ class BaseHttpCommunicationComponent(
     private val gsonProvider = Gson()
 
     companion object {
-        private const val ACCEPT: String = "application/json"
+        private const val ACCEPT: String = "application/vnd.github.mercy-preview+json"
     }
 
     private val okHttpLoggingInterceptor =

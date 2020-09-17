@@ -1,4 +1,4 @@
-package com.divinkas.app.githubmodule.components.network
+package com.divinkas.app.githubmodule.arch.network
 
 import okhttp3.Interceptor
 import okhttp3.Response
