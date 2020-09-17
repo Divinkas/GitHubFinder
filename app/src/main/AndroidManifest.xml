@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.divinkas.app.githubfinder">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".GitHubFinderApplication"
         android:allowBackup="true"

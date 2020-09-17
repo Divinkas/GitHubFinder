@@ -1,11 +1,11 @@
 package com.divinkas.app.githubfinder.ui.find
 
 import com.divinkas.app.githubfinder.R
-import com.divinkas.app.githubfinder.base.ui.BaseScreen
-import org.koin.android.ext.android.inject
+import com.divinkas.app.githubfinder.base.ui.BaseViewModelScreen
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FindRepositoryScreen : BaseScreen(R.layout.main_screen) {
-    private val viewModel: FindViewModel by inject()
+class FindRepositoryScreen : BaseViewModelScreen<FindViewModel>(R.layout.main_screen) {
+    override val viewModel: FindViewModel by viewModel()
 
     override fun setupUi() {
     }

@@ -1,6 +1,6 @@
 package com.divinkas.app.githubfinder.ui.detail
 
-import com.divinkas.app.githubfinder.base.ui.BaseViewModel
+import com.divinkas.app.githubfinder.ui.GitHubViewModel
 
-class DetailRepositoryViewModel: BaseViewModel() {
+class DetailRepositoryViewModel : GitHubViewModel() {
 }
