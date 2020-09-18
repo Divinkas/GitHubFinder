@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.TextView" />
+
+    <style name="AppTheme.TextView.Title" parent="AppTheme.TextView">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+    </style>
+
+    <style name="AppTheme.TextView.Label" parent="AppTheme.TextView">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textSize">@dimen/label_text_size</item>
+        <item name="android:layout_marginTop">@dimen/default_margin</item>
+    </style>
+
+    <style name="AppTheme.TextView.ItemName" parent="AppTheme.TextView">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
+    <style name="AppTheme.TextView.Language" parent="AppTheme.TextView">
+        <item name="android:textColor">@color/orageColor</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:layout_marginTop">@dimen/default_margin</item>
+    </style>
+</resources>

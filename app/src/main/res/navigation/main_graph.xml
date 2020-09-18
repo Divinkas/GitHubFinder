@@ -9,5 +9,19 @@
         android:id="@+id/homeScreen"
         android:name="com.divinkas.app.githubfinder.ui.find.FindRepositoryScreen"
         android:label="Home Screen"
-        tools:layout="@layout/main_screen" />
+        tools:layout="@layout/main_screen">
+        <action
+            android:id="@+id/toSavedFragment"
+            app:destination="@id/savedFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.divinkas.app.githubfinder.ui.saved.SavedRepositoriesScreen"
+        android:label="@string/saved"
+        tools:layout="@layout/saved_screen" />
 </navigation>

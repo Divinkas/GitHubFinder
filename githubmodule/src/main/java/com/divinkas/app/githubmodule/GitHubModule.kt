@@ -1,9 +1,9 @@
 package com.divinkas.app.githubmodule
 
-import com.divinkas.app.githubmodule.bean.api.FindResult
-import com.divinkas.app.githubmodule.bean.api.Repository
 import com.divinkas.app.githubmodule.bean.ServerError
 import com.divinkas.app.githubmodule.bean.ServerResult
+import com.divinkas.app.githubmodule.bean.api.FindResult
+import com.divinkas.app.githubmodule.bean.api.Repository
 import com.divinkas.app.githubmodule.components.RepositoryLocalComponent
 import com.divinkas.app.githubmodule.components.RepositoryWebComponent
 import kotlinx.coroutines.*
@@ -16,22 +16,16 @@ internal class GitHubModule(
     fun findRepositoriesByName(name: String, page: Int): ServerResult<FindResult> {
         var apiResult: ServerResult<FindResult>? = null
 
-        GlobalScope.launch {
-            val results: MutableList<Deferred<ServerResult<FindResult>>> = ArrayList()
+        runBlocking {
+            val searchResult = getSearchResult(name, page)
+            Timber.i("api: find repository result = $searchResult")
 
-            results.add(findRepositoriesAsync(name, page))
-            results.add(findRepositoriesAsync(name, page + 1))
-
-            val hasSuccessResult =
-                results.awaitAll().findLast { it is ServerResult.Success } != null
-
-            apiResult = if (hasSuccessResult)
-                generateSingleApiResult(results)
-            else
-                ServerResult.Error(ServerError.Unknown())
+            apiResult = generateSingleApiResult(searchResult)
+            if (apiResult == null) {
+                apiResult = ServerResult.Error(ServerError.Unknown())
+            }
         }
 
-        Timber.i("api: find repository result = $apiResult")
         return apiResult!!
     }
 
@@ -52,10 +46,19 @@ internal class GitHubModule(
         repositoryWebComponent.findRepositoriesByName(name, page)
     }
 
-    private suspend fun generateSingleApiResult(results: MutableList<Deferred<ServerResult<FindResult>>>) =
+    private suspend fun getSearchResult(name: String, page: Int) = coroutineScope {
+        val results: MutableList<Deferred<ServerResult<FindResult>>> = ArrayList()
+
+        results.add(findRepositoriesAsync(name, page))
+        results.add(findRepositoriesAsync(name, page + 1))
+
+        results.awaitAll()
+    }
+
+    private suspend fun generateSingleApiResult(results: List<ServerResult<FindResult>>) =
         withContext(Dispatchers.IO) {
             var apiServerResult: ServerResult<FindResult>? = null
-            results.awaitAll().forEach {
+            results.forEach {
                 if (it is ServerResult.Success) {
                     if (apiServerResult == null) {
                         apiServerResult = it

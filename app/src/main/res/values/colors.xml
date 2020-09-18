@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#9E9E9E</color>
+    <color name="colorPrimaryDark">#454545</color>
+    <color name="colorAccent">#651FFF</color>
+
+    <color name="primaryTextColor">#111111</color>
+    <color name="secondaryTextColor">#A3A3A3</color>
+
+    <color name="orageColor">#F66537</color>
 </resources>

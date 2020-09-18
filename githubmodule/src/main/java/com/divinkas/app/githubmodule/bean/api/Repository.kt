@@ -41,8 +41,6 @@ data class Repository(
     val statusesUrl: String = "",
     @SerializedName("ssh_url")
     val sshUrl: String = "",
-    @SerializedName("license")
-    val license: String? = null,
     @SerializedName("full_name")
     val fullName: String = "",
     @SerializedName("size")

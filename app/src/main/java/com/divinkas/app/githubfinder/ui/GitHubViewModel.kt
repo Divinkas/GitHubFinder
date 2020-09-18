@@ -21,7 +21,7 @@ open class GitHubViewModel: BaseViewModel() {
     val isLastPageRepositoryLiveData: LiveData<Boolean> = _isLastPageLiveData
 
     fun loadSavedRepository() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             val searchedRepositories = gitHubModuleAPI.loadSavedRepository()
             if (searchedRepositories != null) {
                 _localRepositoriesLiveData.value = searchedRepositories

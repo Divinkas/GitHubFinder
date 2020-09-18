@@ -1,9 +1,12 @@
 package com.divinkas.app.githubfinder.utils
 
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.divinkas.app.githubfinder.R
 import com.divinkas.app.githubfinder.base.livedata.LoadingViewState
 import com.divinkas.app.githubfinder.base.livedata.LoadingViewStateLiveData
 import com.divinkas.app.githubfinder.base.livedata.ViewState
@@ -20,7 +23,10 @@ fun <T> Fragment.observeViewState(liveData: ViewStateLiveData<T>, block: (data: 
     })
 }
 
-fun <T> Fragment.observeViewState(liveData: LoadingViewStateLiveData<T>, block: (state: LoadingViewState<T>) -> Unit) {
+fun <T> Fragment.observeViewState(
+    liveData: LoadingViewStateLiveData<T>,
+    block: (state: LoadingViewState<T>) -> Unit
+) {
     liveData.observe(viewLifecycleOwner, Observer {
         if (it !is LoadingViewState.NoneObservable) {
             Timber.tag(javaClass.simpleName)
@@ -39,9 +45,15 @@ fun <T> Fragment.observeLiveData(liveData: LiveData<T>, block: (data: T) -> Unit
 }
 
 fun Fragment.addBackPressedCallback(action: () -> Unit) {
-    requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            action()
-        }
-    })
+    requireActivity().onBackPressedDispatcher.addCallback(
+        viewLifecycleOwner,
+        object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                action()
+            }
+        })
+}
+
+fun Fragment.toast(@StringRes res: Int) {
+    Toast.makeText(context, getString(res), Toast.LENGTH_SHORT).show()
 }

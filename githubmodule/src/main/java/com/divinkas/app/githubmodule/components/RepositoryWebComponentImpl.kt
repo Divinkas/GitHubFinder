@@ -16,7 +16,7 @@ class RepositoryWebComponentImpl(
         page: Int
     ): ServerResult<FindResult> {
         val webService = httpCommunicationComponent.createService(RepositoryWebService::class.java)
-        return httpCommunicationComponent.execute {
+        return httpCommunicationComponent.execute<FindResult> {
             webService.findRepositoriesByName(
                 repositoryName = name,
                 perPage = configUtils.limitOnPage,

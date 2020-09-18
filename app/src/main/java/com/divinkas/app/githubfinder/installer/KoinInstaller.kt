@@ -2,7 +2,6 @@ package com.divinkas.app.githubfinder.installer
 
 import android.app.Application
 import com.divinkas.app.githubfinder.ui.GitHubViewModel
-import com.divinkas.app.githubfinder.ui.detail.DetailRepositoryViewModel
 import com.divinkas.app.githubfinder.ui.find.FindViewModel
 import com.divinkas.app.githubfinder.ui.saved.SavedRepositoryViewModel
 import com.divinkas.app.githubmodule.GitHubModuleAPI
@@ -21,7 +20,6 @@ object KoinInstaller : ApplicationInstaller {
     private val viewModelModule = module {
         viewModel { GitHubViewModel() }
         viewModel { FindViewModel() }
-        viewModel { DetailRepositoryViewModel() }
         viewModel { SavedRepositoryViewModel() }
     }
 

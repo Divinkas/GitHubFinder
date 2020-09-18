@@ -4,10 +4,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
-class OnScrollHelper(
-    private var isLastPage: Boolean,
+class ScrolledHelper(
     private val callback: OnScrollCallback
 ) : RecyclerView.OnScrollListener() {
+    private var isLastPage: Boolean = false
     private var isLoadingMoreSeries: Boolean = false
     private var CURRENT_PAGE: Int = 1
 

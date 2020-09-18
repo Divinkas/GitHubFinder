@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="repository"
+            type="com.divinkas.app.githubmodule.bean.api.Repository" />
+
+        <variable
+            name="owner"
+            type="com.divinkas.app.githubmodule.bean.api.Owner" />
+
+        <variable
+            name="isLocalRepository"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding">
+
+        <TextView
+            android:id="@+id/tv_repository_name"
+            style="@style/AppTheme.TextView.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@{repository.name}"
+            app:layout_constraintEnd_toStartOf="@+id/btn_action"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="GitHubFinder" />
+
+        <TextView
+            android:id="@+id/tv_owner_label"
+            style="@style/AppTheme.TextView.Label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/owner"
+            app:layout_constraintStart_toStartOf="@+id/tv_repository_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repository_name" />
+
+        <TextView
+            android:id="@+id/tv_owner_name"
+            style="@style/AppTheme.TextView.ItemName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{owner.login}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_owner_label"
+            app:layout_constraintEnd_toEndOf="@+id/tv_repository_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_owner_label"
+            app:layout_constraintTop_toTopOf="@+id/tv_owner_label"
+            tools:text="Divinkas" />
+
+        <TextView
+            android:id="@+id/tv_language"
+            style="@style/AppTheme.TextView.Language"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{repository.language}"
+            app:layout_constraintEnd_toEndOf="@+id/tv_owner_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_owner_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_owner_label"
+            tools:text="Kotlin" />
+
+        <ImageView
+            android:id="@+id/btn_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@{isLocalRepository ? @drawable/ic_remove : @drawable/ic_save}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

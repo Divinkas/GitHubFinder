@@ -8,4 +8,10 @@
         android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
+
+    <item
+        android:id="@+id/goToSaved"
+        android:icon="@drawable/ic_save"
+        android:title="@string/saved"
+        app:showAsAction="ifRoom|collapseActionView" />
 </menu>

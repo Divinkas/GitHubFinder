@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface RepositoryWebService {
-    @GET("/search/repositories")
+    @GET("search/repositories")
     fun findRepositoriesByName(
         @Query("q") repositoryName: String,
         @Query("per_page") perPage: Int,
