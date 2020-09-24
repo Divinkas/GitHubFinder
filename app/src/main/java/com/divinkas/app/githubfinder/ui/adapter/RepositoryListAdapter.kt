@@ -25,6 +25,7 @@ class RepositoryListAdapter : RecyclerView.Adapter<RepositoryListAdapter.Reposit
         val index = repositories.indexOf(repository)
         repositories.remove(repository)
         notifyItemRemoved(index)
+        notifyItemRangeChanged(index, repositories.size)
     }
 
     fun clean() {
