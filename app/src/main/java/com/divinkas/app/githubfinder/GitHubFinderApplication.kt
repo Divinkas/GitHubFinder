@@ -24,5 +24,9 @@ class GitHubFinderApplication : Application() {
         Timber.i("commit 23")
         Timber.i("commit 23")
         Timber.i("commit 23")
+        Timber.i("commit 23")
+        Timber.i("commit 23")
+        Timber.i("commit 23")
+        Timber.i("commit 23")
     }
 }
