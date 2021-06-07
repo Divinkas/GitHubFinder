@@ -5,6 +5,7 @@ import com.divinkas.app.githubfinder.configuration.Configuration
 import com.divinkas.app.githubfinder.installer.KoinInstaller
 import com.divinkas.app.githubfinder.installer.TimberInstaller
 import com.divinkas.app.githubmodule.GitHubModuleAPI
+import timber.log.Timber
 
 class GitHubFinderApplication : Application() {
     override fun onCreate() {
@@ -12,5 +13,7 @@ class GitHubFinderApplication : Application() {
         TimberInstaller.install(application = this)
         KoinInstaller.install(application = this)
         GitHubModuleAPI(configUtils = Configuration.getConfigUtils())
+
+        Timber.i("commit 1")
     }
 }
