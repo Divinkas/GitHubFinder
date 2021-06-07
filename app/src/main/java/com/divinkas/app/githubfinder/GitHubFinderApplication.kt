@@ -15,7 +15,10 @@ class GitHubFinderApplication : Application() {
         GitHubModuleAPI(configUtils = Configuration.getConfigUtils())
 
         Timber.i("commit 1")
+
         Timber.i("commit 2")
         Timber.i("commit 3")
+
+        Timber.i("commit 23")
     }
 }
